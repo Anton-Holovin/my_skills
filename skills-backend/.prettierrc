@@ -16,6 +16,12 @@
         "trailingComma": "none",
         "proseWrap": "preserve"
       }
+    },
+    {
+      "files": "generated/**",
+      "options": {
+        "ignore": true
+      }
     }
   ]
 }

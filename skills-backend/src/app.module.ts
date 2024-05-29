@@ -1,9 +1,20 @@
 import { Module } from '@nestjs/common';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
+import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
-import { ConfigModule } from '@nestjs/config';
+import initAdminJs from './admin.module';
 
 @Module({
-  imports: [ConfigModule.forRoot(), AuthModule, UserModule]
+  imports: [
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'public')
+    }),
+    ConfigModule.forRoot(),
+    AuthModule,
+    UserModule,
+    import('@adminjs/nestjs').then(initAdminJs)
+  ]
 })
 export class AppModule {}

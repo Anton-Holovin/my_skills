@@ -6,7 +6,6 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "generated/client"
 }
 
 datasource db {
@@ -29,7 +28,7 @@ model User {
   socials     SocialLinks?
   todos       Todo[]
 
-  @@map("user")
+  @@map("users")
 }
 
 model SocialLinks {
@@ -59,5 +58,5 @@ model Todo {
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId String @map("user_id")
 
-  @@map("todo")
+  @@map("todos")
 }

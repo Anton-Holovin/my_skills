@@ -36,8 +36,9 @@ export default async function ({ default: { AdminModule } }) {
             }
           ],
           branding: {
-            companyName: 'My Skills',
-            logo: '/logo.svg'
+            companyName: `${process.env.PROJECT_NAME} - Admin panel`,
+            logo: '/logo.svg',
+            favicon: '/favicon-32x32.png'
           }
         },
         auth: {
